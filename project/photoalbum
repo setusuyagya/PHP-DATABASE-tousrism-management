@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		accomodation
+	</title>
+	<link rel="stylesheet" type="text/css" href="accom.css">
+	<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+	<?php
+include("conn.php");
+$sql="select * from photoalbum";
+$result=mysqli_query($conn,$sql);
+echo "<table>
+
+            <tr>
+            <td >WELCOME TO HTML TABLES</td>
+              </tr>
+            <tr>
+            <th>AlbumID</th>
+            <th>Name</th>
+            <th>PlaceID</th>
+            
+
+            </tr>";
+while($row=mysqli_fetch_assoc($result)){
+
+              echo "<tr>";
+              	echo "<th>";
+              echo "<td>" . $row["AlbumId"] . "</td>";
+              echo "<td>" . $row["Name"] . "</td>";
+              echo "<td>" . $row["PlaceID"] . "</td>";
+              
+      
+echo "</th>";
+              echo "</tr>";
+          }
+
+    echo "</table>";
+
+?>
+</body>
+</html>
